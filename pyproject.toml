@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "das-landfast-ice-inversion2025"
+version = "1.0.0"
+description = "Tools for reading and processing distributed acoustic sensing data."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Junsu Jang" }
+]
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "xarray",
+    "h5py",
+    "dask",
+    "zarr",
+    "fsspec",
+    "scipy",
+    "matplotlib",
+    "pyproj",
+    "obspy"
+]
+
+[project.optional-dependencies]
+dev = [
+    "ipykernel",
+    "jupyterlab",
+    "pytest",
+    "ruff",
+    "black",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["das_tools*"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.black]
+line-length = 100
