@@ -31,7 +31,7 @@ das_tools/                 the Python package (installed by pip, see below)
 ├── beamforming/           dispersion grid, steering cache, covariance, beamformer
 ├── hammer_inversion/      Bayesian inversion of hammer dispersion curves
 ├── tap_localization/      tap-test channel picks and channel positions on the walked route
-├── maps/                  KML route, lon/lat <-> metres, satellite basemaps, scale bars
+├── maps/                  KML route, lon/lat <-> meters, satellite basemaps, scale bars
 ├── seismometer/           seismometer reading helpers (ObsPy)
 └── utils/                 project-root lookup, posterior stats, script helpers
 scripts/
