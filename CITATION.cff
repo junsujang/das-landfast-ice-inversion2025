@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "DAS landfast sea ice inversion code"
+version: 1.0.0
+date-released: 2026-10-27
+authors:
+  - family-names: "Jang"
+    given-names: "Junsu"
+    orcid: "https://orcid.org/0000-0002-8769-5751"
+    affiliation: "Woods Hole Oceanographic Institution"
+abstract: >-
+  Code for inverting distributed acoustic sensing (DAS) data
+  to estimate properties of landfast sea ice.
+keywords:
+  - distributed acoustic sensing
+  - sea ice
+  - inversion
+license: MIT
+repository-code: "https://github.com/junsujang/das-landfast-ice-inversion2025"

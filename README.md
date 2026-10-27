@@ -303,7 +303,7 @@ What each figure needs, beyond the files tracked in this repo:
 | S4 | written by `notebooks/tap_inv_batch/step2_residual_diagnostics.ipynb` | pipeline 2 | yes |
 | S5 | written by `figures/main_text/6_hammer_inv/step4_plot_fixed.ipynb` | pipeline 2 | yes |
 | S6 | written by `notebooks/tap_inv_batch/invert_sensitivity_test.ipynb` | pipeline 2 | yes |
-| S7 | data from `scripts/bf_inv_disp/diag_sensitivity_ice_params.py` (`outputs/bf_inv_disp/sensitivity/`) | hourly files (Zenodo) | data yes; plotting notebook not included |
+| S7 | `S7_fg_inv_sensitivity/main_plot_sensitivity.ipynb` | `outputs/bf_inv_disp/sensitivity/` from `scripts/bf_inv_disp/diag_sensitivity_ice_params.py`, which reads hourly files (Zenodo) | yes |
 | S8 | `S8_ice_drill_location/main_ice_thickness.ipynb` | satellite image, EM ice thickness | no |
 | S9 | `S9_legwise_fk_plot/main_fk_eachLeg.ipynb` | hourly files (Zenodo) | yes |
 
