@@ -30,6 +30,8 @@ outputs/bf_inv_disp/*
 !outputs/bf_inv_disp/summary/*.npz
 !outputs/bf_inv_disp/disp_curves/*.npz
 !outputs/bf_inv_disp/posterior/
+!outputs/bf_inv_disp/sensitivity/
+
 outputs/bf_inv_disp/posterior/*/*
 !outputs/bf_inv_disp/posterior/*/config.json
 !outputs/bf_inv_disp/posterior/*/posterior_timeseries.csv

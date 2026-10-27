@@ -1,0 +1,23 @@
+{
+  "data_file": "/user/junsu.jang/das-landfast-ice-inversion2025/data/DAS/pisces_2025_Fs5Hz/das_20250506_000000_5Hz.h5",
+  "block_start": "2025-05-06T00:00:00",
+  "band": "0.10-1.00Hz",
+  "baseline": {
+    "nu": 0.22,
+    "rho_i": 910.0,
+    "rho_w": 1025.0,
+    "h_w": 10.0,
+    "h_i": 0.98,
+    "E_min": 300000000.0,
+    "E_max": 10050000000.0,
+    "E_step": 100000000.0,
+    "C_min": 0.0,
+    "C_max": 2550000.0,
+    "C_step": 100000.0
+  },
+  "theta_step_deg": 2.0,
+  "f_bin_skip": 2,
+  "directional_floor": 1.0,
+  "directional_power": 0.0,
+  "is_coherence_norm": true
+}
