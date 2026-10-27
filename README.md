@@ -11,7 +11,7 @@ seismometer and DAS spectral analyses and the paper's figures.
 |---|---|---|---|
 | 1 | Beamforming + inversion of ambient flexural-gravity waves | `scripts/bf_inv_disp/` | hourly 5 Hz DAS files (Zenodo) |
 | 2 | Hammer (tap-test) dispersion inversion | `notebooks/tap_inv_batch/` | raw hammer records (Zenodo) |
-| 3 | Seismometer decimation and polarization; DAS and seismometer spectrograms | `notebooks/seismometer/`, `scripts/das_spectrogram/` | seismometer data (IRIS), hourly DAS files (Zenodo) |
+| 3 | Seismometer decimation and polarization; DAS and seismometer spectrograms | `notebooks/seismometer/`, `scripts/das_spectrogram/` | seismometer data (International Federation of Digital Seismograph Networks), hourly DAS files (Zenodo) |
 | 4 | Tap localization: which channel sits where on the cable | `notebooks/tap_localization/` | raw hammer records (Zenodo) |
 | 5 | Figures of the main text and the supplementary material | `figures/` | depends on the figure, see [Figures](#5-figures) |
 
@@ -122,7 +122,7 @@ jupyter nbconvert --to notebook --execute --inplace <notebook>.ipynb
 |---|---|---|---|
 | hourly decimated DAS (5 Hz) | Zenodo, [10.5281/zenodo.23221461](https://doi.org/10.5281/zenodo.23221461) | `data/DAS/pisces_2025_Fs5Hz/` | no |
 | raw hammer-shot records (500 Hz, 1 min) | Zenodo, same record | `data/DAS/pisces25_hammer_signals/` | no |
-| seismometers N2, N4, N5 (network X1) | IRIS, [10.7914/Z4FP-3J26](https://doi.org/10.7914/Z4FP-3J26) | `data/seismometer/` | no |
+| seismometers N2, N4, N5 (network X1) | International Federation of Digital Seismograph Networks, [10.7914/Z4FP-3J26](https://doi.org/10.7914/Z4FP-3J26) | `data/seismometer/` | no |
 | channel geometry, bend schedule, tap-test picks, hammer event list, cable route (KML), drill-hole ice thickness | this repo | `data/` | yes |
 | SWIFT 19 buoy telemetry (wind speed, position) | University of Washington, [SWIFT data](https://faculty.washington.edu/jmt3rd/SWIFTdata/DynamicDataLinks.html) | `data/SWIFT19_telemetry.nc` | no |
 | satellite images (Planet, Sentinel-2) | third party, not redistributed | `data/satellite/` | no |
