@@ -6,20 +6,47 @@ __pycache__/
 .ruff_cache/
 .DS_Store
 
-references/
-outputs/
 *.h5
 *.hdf5
 *.zarr/
 *.npz
 *.npy
+*.tif
 
 *.egg-info
 *.nc
 
+
+# outputs/: everything the code writes stays out of git, except the small
+# beamforming results Figs 7-9 read (stitched posteriors, summary, dispersion
+# curves). The per-block files, steering cache and stage-3 PNGs stay out.
+# A directory has to be re-included before anything inside it can be, and the
+# negations must come after the *.npz rule above.
+outputs/*
+!outputs/bf_inv_disp/
+outputs/bf_inv_disp/*
+!outputs/bf_inv_disp/disp_curves/
+!outputs/bf_inv_disp/summary/
+!outputs/bf_inv_disp/summary/*.npz
+!outputs/bf_inv_disp/disp_curves/*.npz
+!outputs/bf_inv_disp/posterior/
+outputs/bf_inv_disp/posterior/*/*
+!outputs/bf_inv_disp/posterior/*/config.json
+!outputs/bf_inv_disp/posterior/*/posterior_timeseries.csv
+!outputs/bf_inv_disp/posterior/*/posterior_timeseries.npz
+!outputs/bf_inv_disp/posterior/*/posterior_stacked_EP.npz
+
+
 # data/: raw DAS records stay out of git (data/DAS/ is 1.3 GB); the small
 # inputs every script and notebook reads (geometry, bend schedule, tap-test
-# picks) are tracked. Negations must come after the *.npz rule above.
+# picks, cable route) are tracked. Third-party data (SWIFT buoy, satellite
+# images, EM ice thickness) is not. Negations must come after the *.npz rule.
 data/*
 !data/*.csv
 !data/*.npz
+!data/*.kml
+!data/ice_thickness/
+data/ice_thickness/EM*
+data/seismometer_decimated/
+data/DAS
+data/satellite

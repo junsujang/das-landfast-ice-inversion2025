@@ -1,0 +1,14 @@
+{
+  "band": "0.10-1.00Hz",
+  "postfix": "omni_skip2",
+  "norm_tag": "coh",
+  "f_bin_skip": 2,
+  "is_coherence_norm": true,
+  "fmin": 0.1,
+  "fmax": 1.0,
+  "ll_scale": "none",
+  "top_n": 1,
+  "n_examples": 4,
+  "block_power": false,
+  "source_dir": "/user/junsu.jang/das-landfast-ice-inversion2025/outputs/bf_inv_disp/0.10-1.00Hz/coh"
+}
