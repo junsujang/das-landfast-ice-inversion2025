@@ -31,12 +31,17 @@ outputs/bf_inv_disp/*
 !outputs/bf_inv_disp/disp_curves/*.npz
 !outputs/bf_inv_disp/posterior/
 !outputs/bf_inv_disp/sensitivity/
+!outputs/bf_inv_disp/crossleg/
 
 outputs/bf_inv_disp/posterior/*/*
+outputs/bf_inv_disp/crossleg/*/*
 !outputs/bf_inv_disp/posterior/*/config.json
 !outputs/bf_inv_disp/posterior/*/posterior_timeseries.csv
 !outputs/bf_inv_disp/posterior/*/posterior_timeseries.npz
 !outputs/bf_inv_disp/posterior/*/posterior_stacked_EP.npz
+!outputs/bf_inv_disp/crossleg/*/*.npz
+!outputs/bf_inv_disp/crossleg/*/*.csv
+!outputs/bf_inv_disp/sensitivity/*.npz
 
 
 # data/: raw DAS records stay out of git (data/DAS/ is 1.3 GB); the small

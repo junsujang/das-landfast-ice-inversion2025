@@ -6,54 +6,6 @@ from das_tools.processing import spectral
 from das_tools.processing.filtering import filter_channels
 
 
-# def neighbor_coherence_weights(
-#     X_sel,
-#     eps=1e-12,
-#     clip=(0.05, 1.0),
-# ):
-#     """
-#     Compute per-channel reliability weights from adjacent-channel complex coherence.
-
-#     X_sel: (Nsnap, Nf, M)
-
-#     Returns w: (M,) in [clip[0], clip[1]]
-#     """
-#     X_sel = np.asarray(X_sel)
-#     if X_sel.ndim != 3:
-#         raise ValueError("X_sel must be (Nsnap,Nf,M), got {}".format(X_sel.shape))
-#     _, _, M = X_sel.shape
-#     if M < 2:
-#         return np.ones(M, dtype=float)
-
-#     Xi = X_sel[:, :, :-1]
-#     Xj = X_sel[:, :, 1:]
-
-#     Sij = np.mean(Xi * np.conj(Xj), axis=(0,1))
-#     Sii = np.mean(np.abs(Xi)**2, axis=(0,1)) + eps
-#     Sjj = np.mean(np.abs(Xj)**2, axis=(0,1)) + eps
-
-#     coh = np.abs(Sij) / np.sqrt(Sii * Sjj)
-
-#     w = np.zeros(M, dtype=float)
-#     w[0] = coh[0]
-#     w[-1] = coh[-1]
-#     w[1:-1] = 0.5*(coh[:-1] + coh[1:])
-
-#     w = np.clip(w, clip[0], clip[1])
-#     w = w / np.max(w)
-#     return w
-
-
-# def compute_snapshot_covariance(X):
-#     """Outer product X X^H per frequency, X (F, M), after neighbor-coherence weighting."""
-#     # w_ch = neighbor_coherence_weights(X[np.newaxis, :, :])  # (M,)
-#     # w_ch = np.asarray(w_ch, dtype=float)
-#     # sw = np.sqrt(w_ch).astype(float)
-#     # X = X * sw[None, :]
-
-#     Rk = np.einsum('fm,fn->fmn', X, X.conj())  # (F,M,M)
-#     return Rk
-
 
 def snapshot_covariance(x_win: np.ndarray, fs: float, band: dict,
                         filter_order: int = 4):
