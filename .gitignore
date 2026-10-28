@@ -53,6 +53,7 @@ data/*
 !data/*.npz
 !data/*.kml
 !data/ice_thickness/
+!data/CTD/
 data/ice_thickness/EM*
 data/seismometer_decimated/
 data/DAS
