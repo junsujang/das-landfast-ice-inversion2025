@@ -16,7 +16,7 @@ class IceConfig:
     E_max: float = 10.0e9
     E_step: float = 0.1e9
     C_min: float = 0.0
-    C_max: float = 3.0e6
+    C_max: float = 2.5e6
     C_step: float = 0.1e6
 
     def get_E_All(self):

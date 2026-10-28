@@ -488,7 +488,7 @@ def make_parser() -> argparse.ArgumentParser:
     parser.add_argument("--f-bin-skip", type=int, default=None,
                         help="Beamform every Nth bin only -- trades resolution in f for speed "
                              "(default: the skip of stage 1's cache, else 1)")
-    parser.add_argument("--fmin", type=float, default=0.05, help="Scoring window, Hz")
+    parser.add_argument("--fmin", type=float, default=0.10, help="Scoring window, Hz")
     parser.add_argument("--fmax", type=float, default=1.00, help="Scoring window, Hz")
     parser.add_argument("--ll-scale", choices=("none", "bandwidth"), default="none")
     parser.add_argument("--is-coherence-norm", type=str2bool, default=stage2.IS_COHERENCE_NORM)

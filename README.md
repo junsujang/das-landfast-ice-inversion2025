@@ -167,7 +167,7 @@ in-plane compression P and the arrival direction theta. Reads
 | 2 | `step2_bf_disp_hourly.py` | `<band>/<raw\|coh>/bfdisp_*.npz`: beam power per covariance block (expensive) |
 | 3 | `step3_analyze_bf_disp_posterior.py` | `posterior/<run>/`: per-block (E, P, theta) posteriors, time series, stacked p(E, P), figures |
 | 4 | `step4_stitch_bf_disp_series.py` | `summary/`: the per-block posteriors stitched into one small file |
-| - | `diag_crossleg_coh.py` | `crossleg/`: do the two cable legs agree? |
+| - | `diag_crossleg_share.py` | `crossleg/`: leg-wise and cross-leg shares of the beam at the theta-window estimate (Text S8) |
 | - | `diag_sensitivity_ice_params.py` | `sensitivity/`: how one block's (E, P) moves with nu, h_w, rho_i, rho_w (data of Fig. S7) |
 
 Each step is resumable: finished outputs are skipped on a rerun. Give every step
@@ -188,7 +188,7 @@ python step3_analyze_bf_disp_posterior.py $DIR --is-coherence-norm true
 python step4_stitch_bf_disp_series.py $DIR --is-coherence-norm true
 
 # diagnostics, reusing the step 1-2 outputs
-python diag_crossleg_coh.py $DIR --is-coherence-norm true
+python diag_crossleg_share.py $DIR --is-coherence-norm true --theta-fix 294 --theta-half-width 5
 python diag_sensitivity_ice_params.py --list-tasks
 python diag_sensitivity_ice_params.py --data-file <hourly file>.h5
 ```

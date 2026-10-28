@@ -100,13 +100,16 @@ def _select_events(s,ids):
 
 def plot_event_estimates(event_results,global_result=None,figsize=(12,10),
                          ci_level=0.95,ci_method="equal_tailed",show_ci=True,
-                         param_events=None):
+                         param_events=None,ylims=None):
     """Per-event posterior means with 1-sigma bars and, if ``show_ci``, credible-interval bars.
 
     ``param_events`` optionally restricts individual panels to a subset of
     events, e.g. ``{"nu": [2, 4, 14, 15]}`` to show only those four events in
     the Poisson's ratio panel. Entries are event ids when they appear in the
     summary frame, otherwise positional row indices.
+
+    ``ylims`` optionally sets per-panel y-limits in plotted units (GPa for
+    ``E``), e.g. ``{"E": (4, 7)}``.
     """
     s = make_event_summary(event_results,ci_level=ci_level,ci_method=ci_method);
     params = free_params(next(iter(event_results.values())))
@@ -117,33 +120,24 @@ def plot_event_estimates(event_results,global_result=None,figsize=(12,10),
     specs = [(f"{p}_mean",f"{p}_std",p,PARAM_LABELS.get(p,p)) for p in params]
 
     param_events=param_events or {}
+    ylims=ylims or {}
 
     for ax,(mc,sc,p,ylabel) in zip(axes,specs):
         sp=_select_events(s,param_events[p]) if p in param_events else s
+        scale=1e9 if p == "E" else 1.0  # plot E in GPa
         if show_ci:
-            # Thin bar for the credible interval, thick bar for ±1σ, same marker.
-            ci_err=np.vstack([sp[mc]-sp[f"{p}_ci_lo"],sp[f"{p}_ci_hi"]-sp[mc]])
-            ax.errorbar(sp.event_id,sp[mc],yerr=ci_err,fmt="o",capsize=5,
+            ci_err=np.vstack([sp[mc]-sp[f"{p}_ci_lo"],sp[f"{p}_ci_hi"]-sp[mc]])/scale
+            ax.errorbar(sp.event_id,sp[mc]/scale,yerr=ci_err,fmt="o",capsize=5,
                         elinewidth=1,color="C0",alpha=1,
                         label=f"Event {ci_level:.0%} CI")
-        # ax.scatter(s.event_id,s[mc],yerr=s[sc],fmt="o",capsize=3,color="C0",
-        #             label="Event posterior mean ±1σ")
 
         if global_result is not None:
             gm=global_result.marginal_mean(p)
-            gs=global_result.marginal_std(p)
-
-            ax.axhline(gm,ls="--",label="Global mean")
-            # ax.axhspan(gm-gs,gm+gs,alpha=.15)
-            # if show_ci:
-            #     glo,ghi=global_result.marginal_credible_interval(
-            #         p,level=ci_level,method=ci_method)
-            #     ax.axhline(glo,ls=":",lw=1,color="gray")
-            #     ax.axhline(ghi,ls=":",lw=1,color="gray",
-            #                label=f"Global {ci_level:.0%} CI")
+            ax.axhline(gm/scale,ls="--",label="Global posterior mean")
 
         ax.set_ylabel(ylabel);ax.grid(alpha=.2);
-        ax.set_ylim()
+        if p in ylims:
+            ax.set_ylim(*ylims[p])
         if mc == specs[0][0]:
             ax.legend()
         
